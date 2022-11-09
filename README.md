@@ -14,7 +14,7 @@ The following commands download a package from a remote repository and install i
 ```
 mkdir -p ~/manta_ws/src
 cd ~/manta_ws/src
-git clone 
+git clone https://github.com/tasada038/manta_v2.git
 cd ~/manta_ws && colcon build --symlink-install
 ```
 
