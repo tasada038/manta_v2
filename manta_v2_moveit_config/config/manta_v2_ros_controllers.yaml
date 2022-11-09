@@ -1,0 +1,127 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    manta_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    rtop_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    rmid_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    rbtm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    ltop_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    lmid_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    lbtm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+manta_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Rtop_roll1
+      - rev_link_Rtop_pitch
+      - rev_link_Rtop_roll2
+      - rev_link_Rmid_roll1
+      - rev_link_Rmid_pitch
+      - rev_link_Rmid_roll2
+      - rev_link_Rbtm_roll1
+      - rev_link_Rbtm_pitch
+      - rev_link_Rbtm_roll2
+
+      - rev_link_Ltop_roll1
+      - rev_link_Ltop_pitch
+      - rev_link_Ltop_roll2
+      - rev_link_Lmid_roll1
+      - rev_link_Lmid_pitch
+      - rev_link_Lmid_roll2
+      - rev_link_Lbtm_roll1
+      - rev_link_Lbtm_pitch
+      - rev_link_Lbtm_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+rtop_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Rtop_roll1
+      - rev_link_Rtop_pitch
+      - rev_link_Rtop_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+rmid_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Rmid_roll1
+      - rev_link_Rmid_pitch
+      - rev_link_Rmid_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+rbtm_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Rbtm_roll1
+      - rev_link_Rbtm_pitch
+      - rev_link_Rbtm_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+ltop_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Ltop_roll1
+      - rev_link_Ltop_pitch
+      - rev_link_Ltop_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+lmid_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Lmid_roll1
+      - rev_link_Lmid_pitch
+      - rev_link_Lmid_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+lbtm_controller:
+  ros__parameters:
+    joints:
+      - rev_link_Lbtm_roll1
+      - rev_link_Lbtm_pitch
+      - rev_link_Lbtm_roll2
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

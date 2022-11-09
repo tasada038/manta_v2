@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+<robot name="manta_v2" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="rev_link_head_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_head">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_head_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Ltop_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Ltop_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Ltop_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Ltop_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Ltop_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Ltop_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Ltop_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Ltop_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Ltop_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lmid_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lmid_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lmid_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lmid_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lmid_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lmid_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lmid_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lmid_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lmid_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lbtm_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lbtm_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lbtm_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lbtm_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lbtm_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lbtm_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Lbtm_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Lbtm_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Lbtm_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rtop_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rtop_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rtop_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rtop_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rtop_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rtop_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rtop_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rtop_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rtop_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rmid_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rmid_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rmid_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rmid_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rmid_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rmid_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rmid_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rmid_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rmid_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rbtm_roll2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rbtm_roll2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rbtm_roll2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rbtm_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rbtm_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rbtm_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="rev_link_Rbtm_roll1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rev_link_Rbtm_roll1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rev_link_Rbtm_roll1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

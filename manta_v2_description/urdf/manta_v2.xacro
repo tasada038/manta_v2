@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<robot name="manta_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find manta_v2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find manta_v2_description)/urdf/manta_v2.trans" />
+<xacro:include filename="$(find manta_v2_description)/urdf/manta_v2.gazebo" />
+<xacro:include filename="$(find manta_v2_description)/urdf/manta_v2_description.xacro" />
+<xacro:manta_v2_description main_color="grey" sub_color="white" />
+
+<!-- Import MantaRobot ros2_control description -->
+<xacro:include filename="$(find manta_v2_description)/ros2_control/manta_v2_ros2_control.xacro" />
+<xacro:manta_v2_ros2_control name="manta_v2" />
+
+</robot>

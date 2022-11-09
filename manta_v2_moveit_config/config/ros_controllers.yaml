@@ -1,0 +1,132 @@
+rtop_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Rtop_roll1
+    - rev_link_Rtop_pitch
+    - rev_link_Rtop_roll2
+  gains:
+    rev_link_Rtop_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rtop_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rtop_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+rmid_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Rmid_roll1
+    - rev_link_Rmid_pitch
+    - rev_link_Rmid_roll2
+  gains:
+    rev_link_Rmid_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rmid_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rmid_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+rbtm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Rbtm_roll1
+    - rev_link_Rbtm_pitch
+    - rev_link_Rbtm_roll2
+  gains:
+    rev_link_Rbtm_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rbtm_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Rbtm_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+ltop_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Ltop_roll1
+    - rev_link_Ltop_pitch
+    - rev_link_Ltop_roll2
+  gains:
+    rev_link_Ltop_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Ltop_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Ltop_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+lmid_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Lmid_roll1
+    - rev_link_Lmid_pitch
+    - rev_link_Lmid_roll2
+  gains:
+    rev_link_Lmid_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Lmid_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Lmid_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+lbtm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - rev_link_Lbtm_roll1
+    - rev_link_Lbtm_pitch
+    - rev_link_Lbtm_roll2
+  gains:
+    rev_link_Lbtm_roll1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Lbtm_pitch:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    rev_link_Lbtm_roll2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

@@ -1,0 +1,43 @@
+controller_list:
+  - name: fake_rtop_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_rtop_roll1
+      - rev_link_rtop_pitch
+      - rev_link_rtop_roll2
+  - name: fake_rmid_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_rmid_roll1
+      - rev_link_rmid_pitch
+      - rev_link_rmid_roll2
+  - name: fake_rbtm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_rbtm_roll1
+      - rev_link_rbtm_pitch
+      - rev_link_rbtm_roll2
+  - name: fake_ltop_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_ltop_roll1
+      - rev_link_ltop_pitch
+      - rev_link_ltop_roll2
+  - name: fake_lmid_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_lmid_roll1
+      - rev_link_lmid_pitch
+      - rev_link_lmid_roll2
+  - name: fake_lbtm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - rev_link_lbtm_roll1
+      - rev_link_lbtm_pitch
+      - rev_link_lbtm_roll2
+
+initial:  # Define initial robot poses per group
+#  - group: rtop
+#    pose: home
+
+  []

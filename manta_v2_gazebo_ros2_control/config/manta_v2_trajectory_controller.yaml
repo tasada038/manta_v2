@@ -1,0 +1,40 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      # Rev Link R
+      - rev_link_Rtop_roll1
+      - rev_link_Rtop_pitch
+      - rev_link_Rtop_roll2
+      - rev_link_Rmid_roll1
+      - rev_link_Rmid_pitch
+      - rev_link_Rmid_roll2
+      - rev_link_Rbtm_roll1
+      - rev_link_Rbtm_pitch
+      - rev_link_Rbtm_roll2
+      # Rev Link L
+      - rev_link_Ltop_roll1
+      - rev_link_Ltop_pitch
+      - rev_link_Ltop_roll2
+      - rev_link_Lmid_roll1
+      - rev_link_Lmid_pitch
+      - rev_link_Lmid_roll2
+      - rev_link_Lbtm_roll1
+      - rev_link_Lbtm_pitch
+      - rev_link_Lbtm_roll2
+      # Rev Link Head
+      - rev_link_head
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

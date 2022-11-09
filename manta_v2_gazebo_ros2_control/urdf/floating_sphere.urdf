@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<robot name="floating_sphere">
+
+    <!-- Colours for RVIZ for geometric elements -->
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
+    </material>
+
+
+	<!-- * * * Link Definitions * * * -->
+
+    <link name="sphere_base_link">
+ 	    <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="7.23822947387" />
+            <inertia ixx="0.00576" ixy="0.0" ixz="0.0" iyy="0.00576" iyz="0.0" izz="0.00576"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.12"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <sphere radius="0.12"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+    </link>
+    
+    <gazebo reference="sphere_base_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+    
+    <gazebo>
+        <plugin name="buoyancy_sphere" filename="libBuoyancyPlugin.so">
+          <fluid_density>1000</fluid_density>
+        </plugin>
+    </gazebo>
+
+</robot>
+
+<!-- https://www.youtube.com/watch?v=NgmvhSEM5SQ -->
+<!-- https://www.theconstructsim.com/ros-qa-buoyancy-neutral-object-goes-up-with-hydrodynamics-plugin/ -->
+<!-- https://answers.gazebosim.org//question/15600/buoyancy-neutral-object-goes-up-with-hydrodynamics-plugin/ -->

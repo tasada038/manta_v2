@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<robot name="floating_sphere_with_fin">
+
+    <!-- Colours for RVIZ for geometric elements -->
+    <material name="red">
+        <color rgba="0.8 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 0.8 0.8 1"/>
+    </material>
+
+
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>$(find manta_v2_gazebo_ros2_control)/config/floating_sphere_with_fin_controller.yaml</parameters>
+    </plugin>
+    </gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="sphere_caudal_fin_joint">
+      <command_interface name="position">
+        <param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+	<!-- * * * Link Definitions * * * -->
+
+    <link name="simple_sphere_base_link">
+ 	    <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="7.23822947387" />
+            <inertia ixx="0.00576" ixy="0.0" ixz="0.0" iyy="0.00576" iyz="0.0" izz="0.00576"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.12"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <sphere radius="0.12"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+    </link>
+    
+    <gazebo reference="simple_sphere_base_link">
+        <kp>100000.0</kp>
+        <kd>100000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+    </gazebo>
+    
+    
+    
+    <link name="sphere_caudal_fin_link">
+ 	    <inertial>
+            <origin xyz="0 0.19 0" rpy="0 0 0"/>
+            <mass value="0.0923628240155" />
+            <inertia ixx="0.000113421547891" ixy="0.0" ixz="0.0" iyy="0.000113421547891" iyz="0.0" izz="0.000226288918838"/>
+        </inertial>
+        <collision>
+            <origin xyz="0 0.19 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.07" length="0.006"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0.19 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.07" length="0.006"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+	</link>
+
+    <gazebo reference="sphere_caudal_fin_link">
+        <kp>1000000.0</kp>
+        <kd>1000000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <joint name="sphere_caudal_fin_joint" type="revolute">
+    	<parent link="simple_sphere_base_link"/>
+    	<child link="sphere_caudal_fin_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <limit lower="-0.5" upper="0.5" effort="15.0" velocity="10.0"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+	
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="sphere_caudal_fin_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+    <gazebo>
+        <plugin name="sphere_caudal_fin" filename="libLiftDragPlugin.so">
+          <air_density>1000</air_density>
+          <cla>0</cla>
+          <cla_stall>0</cla_stall>
+          <cda>1.2535816618911175</cda>
+          <cda_stall>1.4326647564469914</cda_stall>
+          <alpha_stall>0</alpha_stall>
+          <a0>0</a0>
+          <area>0.0334265458342</area>
+          <upward>0 0 1.0</upward>
+          <forward>1.0 0 0</forward>
+          <link_name>sphere_caudal_fin_link</link_name>
+          <cp>0 -0.19 0</cp>
+        </plugin>
+    </gazebo>
+    
+    
+    <!--
+    <gazebo>
+        <plugin name="sphere_caudal_fin" filename="libLiftDragPlugin.so">
+          <air_density>1000</air_density>
+          
+          <cla>1.2535816618911175</cla>
+          <cla_stall>-1.4326647564469914</cla_stall>
+          
+          <cda>1.2535816618911175</cda>
+          <cda_stall>1.4326647564469914</cda_stall>
+          
+          <alpha_stall>1.396</alpha_stall>
+          <a0>0</a0>
+          
+          <area>0.0334265458342</area>
+          <upward>0 0 1</upward>
+          <forward>1 0 0</forward>
+          <link_name>sphere_caudal_fin_link</link_name>
+          <cp>-0.07 0 0</cp>
+        </plugin>
+    </gazebo>
+    
+    
+    -->
+    
+    <gazebo>
+        <plugin name="buoyancy_sphere" filename="libBuoyancyPlugin.so">
+          <fluid_density>1000</fluid_density>
+        </plugin>
+    </gazebo>
+
+</robot>

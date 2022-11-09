@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="manta_v2">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="Rtop">
+        <link name="link_Rtop_roll1_1"/>
+        <link name="link_Rtop_pitch_1"/>
+        <link name="link_Rtop_roll2_1"/>
+        <link name="link_Rtop_end_1"/>
+        <joint name="rev_link_Rtop_roll1"/>
+        <joint name="rev_link_Rtop_pitch"/>
+        <joint name="rev_link_Rtop_roll2"/>
+        <joint name="con_link_Rtop_end"/>
+        <chain base_link="base_link" tip_link="link_Rtop_end_1"/>
+    </group>
+    <group name="Rmid">
+        <link name="link_Rmid_roll1_1"/>
+        <link name="link_Rmid_pitch_1"/>
+        <link name="link_Rmid_roll2_1"/>
+        <link name="link_Rmid_end_1"/>
+        <joint name="rev_link_Rmid_roll1"/>
+        <joint name="rev_link_Rmid_pitch"/>
+        <joint name="rev_link_Rmid_roll2"/>
+        <joint name="con_link_Rmid_end"/>
+        <chain base_link="base_link" tip_link="link_Rmid_end_1"/>
+    </group>
+    <group name="Rbtm">
+        <link name="link_Rbtm_roll1_1"/>
+        <link name="link_Rbtm_pitch_1"/>
+        <link name="link_Rbtm_roll2_1"/>
+        <link name="link_Rbtm_end_1"/>
+        <joint name="rev_link_Rbtm_roll1"/>
+        <joint name="rev_link_Rbtm_pitch"/>
+        <joint name="rev_link_Rbtm_roll2"/>
+        <joint name="con_link_Rbtm_end"/>
+        <chain base_link="base_link" tip_link="link_Rbtm_end_1"/>
+    </group>
+
+    <group name="Ltop">
+        <link name="link_Ltop_roll1_1"/>
+        <link name="link_Ltop_pitch_1"/>
+        <link name="link_Ltop_roll2_1"/>
+        <link name="link_Ltop_end_1"/>
+        <joint name="rev_link_Ltop_roll1"/>
+        <joint name="rev_link_Ltop_pitch"/>
+        <joint name="rev_link_Ltop_roll2"/>
+        <joint name="con_link_Ltop_end"/>
+        <chain base_link="base_link" tip_link="link_Ltop_end_1"/>
+    </group>
+    <group name="Lmid">
+        <link name="link_Lmid_roll1_1"/>
+        <link name="link_Lmid_pitch_1"/>
+        <link name="link_Lmid_roll2_1"/>
+        <link name="link_Lmid_end_1"/>
+        <joint name="rev_link_Lmid_roll1"/>
+        <joint name="rev_link_Lmid_pitch"/>
+        <joint name="rev_link_Lmid_roll2"/>
+        <joint name="con_link_Lmid_end"/>
+        <chain base_link="base_link" tip_link="link_Lmid_end_1"/>
+    </group>
+    <group name="Lbtm">
+        <link name="link_Lbtm_roll1_1"/>
+        <link name="link_Lbtm_pitch_1"/>
+        <link name="link_Lbtm_roll2_1"/>
+        <link name="link_Lbtm_end_1"/>
+        <joint name="rev_link_Lbtm_roll1"/>
+        <joint name="rev_link_Lbtm_pitch"/>
+        <joint name="rev_link_Lbtm_roll2"/>
+        <joint name="con_link_Lbtm_end"/>
+        <chain base_link="base_link" tip_link="link_Lbtm_end_1"/>
+    </group>
+
+    <group name="Manta">
+        <group name="Rtop" />
+        <group name="Rmid" />        
+        <group name="Rbtm" />
+        <group name="Ltop" />
+        <group name="Lmid" />        
+        <group name="Lbtm" />
+    </group>
+
+    <group_state group="Ltop" name="Init">
+        <joint name="rev_link_Ltop_roll1" value="0"/>
+        <joint name="rev_link_Ltop_pitch" value="0"/>
+        <joint name="rev_link_Ltop_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Lmid" name="Init">
+        <joint name="rev_link_Lmid_roll1" value="0"/>
+        <joint name="rev_link_Lmid_pitch" value="0"/>
+        <joint name="rev_link_Lmid_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Lbtm" name="Init">
+        <joint name="rev_link_Lbtm_roll1" value="0"/>
+        <joint name="rev_link_Lbtm_pitch" value="0"/>
+        <joint name="rev_link_Lbtm_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Rtop" name="Init">
+        <joint name="rev_link_Rtop_roll1" value="0"/>
+        <joint name="rev_link_Rtop_pitch" value="0"/>
+        <joint name="rev_link_Rtop_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Rmid" name="Init">
+        <joint name="rev_link_Rmid_roll1" value="0"/>
+        <joint name="rev_link_Rmid_pitch" value="0"/>
+        <joint name="rev_link_Rmid_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Rbtm" name="Init">
+        <joint name="rev_link_Rbtm_roll1" value="0"/>
+        <joint name="rev_link_Rbtm_pitch" value="0"/>
+        <joint name="rev_link_Rbtm_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Manta" name="Init">
+        <joint name="rev_link_Rtop_roll1" value="0"/>
+        <joint name="rev_link_Rtop_pitch" value="0"/>
+        <joint name="rev_link_Rtop_roll2" value="0"/>
+        <joint name="rev_link_Rmid_roll1" value="0"/>
+        <joint name="rev_link_Rmid_pitch" value="0"/>
+        <joint name="rev_link_Rmid_roll2" value="0"/>
+        <joint name="rev_link_Rbtm_roll1" value="0"/>
+        <joint name="rev_link_Rbtm_pitch" value="0"/>
+        <joint name="rev_link_Rbtm_roll2" value="0"/>
+        <joint name="rev_link_Ltop_roll1" value="0"/>
+        <joint name="rev_link_Ltop_pitch" value="0"/>
+        <joint name="rev_link_Ltop_roll2" value="0"/>
+        <joint name="rev_link_Lmid_roll1" value="0"/>
+        <joint name="rev_link_Lmid_pitch" value="0"/>
+        <joint name="rev_link_Lmid_roll2" value="0"/>
+        <joint name="rev_link_Lbtm_roll1" value="0"/>
+        <joint name="rev_link_Lbtm_pitch" value="0"/>
+        <joint name="rev_link_Lbtm_roll2" value="0"/>
+    </group_state>
+
+    <group_state group="Manta" name="Up">
+        <joint name="rev_link_Rtop_roll1" value="-0.52"/>
+        <joint name="rev_link_Rtop_pitch" value="0.0"/>
+        <joint name="rev_link_Rtop_roll2" value="0.70"/>
+        <joint name="rev_link_Rmid_roll1" value="-0.52"/>
+        <joint name="rev_link_Rmid_pitch" value="0.0"/>
+        <joint name="rev_link_Rmid_roll2" value="0.70"/>
+        <joint name="rev_link_Rbtm_roll1" value="-0.52"/>
+        <joint name="rev_link_Rbtm_pitch" value="0.0"/>
+        <joint name="rev_link_Rbtm_roll2" value="0.70"/>
+        <joint name="rev_link_Ltop_roll1" value="0.52"/>
+        <joint name="rev_link_Ltop_pitch" value="-0.0"/>
+        <joint name="rev_link_Ltop_roll2" value="-0.70"/>
+        <joint name="rev_link_Lmid_roll1" value="0.52"/>
+        <joint name="rev_link_Lmid_pitch" value="-0.0"/>
+        <joint name="rev_link_Lmid_roll2" value="-0.70"/>
+        <joint name="rev_link_Lbtm_roll1" value="0.52"/>
+        <joint name="rev_link_Lbtm_pitch" value="-0.0"/>
+        <joint name="rev_link_Lbtm_roll2" value="-0.70"/>
+    </group_state>
+
+    <end_effector name="rtop_eef" parent_link="link_Rtop_end_1" group="Rtop" />
+    <end_effector name="rmid_eef" parent_link="link_Rmid_end_1" group="Rmid" />
+    <end_effector name="rbtm_eef" parent_link="link_Rbtm_end_1" group="Rbtm" />
+    <end_effector name="ltop_eef" parent_link="link_Ltop_end_1" group="Ltop" />
+    <end_effector name="lmid_eef" parent_link="link_Lmid_end_1" group="Lmid" />
+    <end_effector name="lbtm_eef" parent_link="link_Lbtm_end_1" group="Lbtm" />
+
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="link_Lbtm_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Lbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Lbtm_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Lbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Lmid_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Lmid_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Lmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Ltop_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Ltop_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rbtm_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rmid_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_Rtop_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_ballast_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_head_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Lbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Lbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Lbtm_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Lmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lbtm_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lbtm_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Lmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Ltop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Lbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Lmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Lmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Lmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Ltop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Lmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lbtm_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Lmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Lmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Lmid_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Lmid_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Lmid_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Ltop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Lmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Ltop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Lmid_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Ltop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Ltop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Ltop_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Ltop_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Ltop_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Ltop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rbtm_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Ltop_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rbtm_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rbtm_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rbtm_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rbtm_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rbtm_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rbtm_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rmid_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rbtm_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_Rmid_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_Rmid_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_Rmid_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_Rmid_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_Rmid_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_Rmid_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_Rtop_end_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll2_1" link2="link_Rtop_pitch_1" reason="Default"/>
+    <disable_collisions link1="link_Rmid_roll2_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rmid_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_Rtop_pitch_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_Rtop_roll1_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_Rtop_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_end_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_pitch_1" link2="link_Rtop_roll1_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rtop_pitch_1" link2="link_Rtop_roll2_1" reason="Adjacent"/>
+    <disable_collisions link1="link_Rtop_pitch_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_pitch_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_pitch_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll1_1" link2="link_Rtop_roll2_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll1_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll1_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll1_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll2_1" link2="link_ballast_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll2_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_Rtop_roll2_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_ballast_1" link2="link_head_1" reason="Never"/>
+    <disable_collisions link1="link_ballast_1" link2="link_rs_camera_1" reason="Never"/>
+    <disable_collisions link1="link_head_1" link2="link_rs_camera_1" reason="Adjacent"/>
+</robot>

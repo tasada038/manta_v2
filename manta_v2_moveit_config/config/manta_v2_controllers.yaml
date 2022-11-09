@@ -1,0 +1,61 @@
+controller_names:
+  - rtop_controller
+  - rmid_controller
+  - rbtm_controller
+  - ltop_controller
+  - lmid_controller
+  - lbtm_controller
+
+rtop_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Rtop_roll1
+    - rev_link_Rtop_pitch
+    - rev_link_Rtop_roll2
+
+rmid_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Rmid_roll1
+    - rev_link_Rmid_pitch
+    - rev_link_Rmid_roll2
+
+rbtm_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Rbtm_roll1
+    - rev_link_Rbtm_pitch
+    - rev_link_Rbtm_roll2
+
+ltop_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Ltop_roll1
+    - rev_link_Ltop_pitch
+    - rev_link_Ltop_roll2
+
+lmid_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Lmid_roll1
+    - rev_link_Lmid_pitch
+    - rev_link_Lmid_roll2
+
+lbtm_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - rev_link_Lbtm_roll1
+    - rev_link_Lbtm_pitch
+    - rev_link_Lbtm_roll2
