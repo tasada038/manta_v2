@@ -60,21 +60,27 @@ ros2 run manta_v2_controller servo_node
 
 ## Packages
 - manta_v2_description
+
 This package contains model files (urdf, stl) for loading manta_v2 in ROS2 and Rviz2 environments.
 
 - manta_v2_bringup
+
 This package contains launch files for loading manta_v2 in ROS2 and Rviz2 environments.
 
 - manta_v2_controller
+
 This package controls manta_v2 swimming and walking.
 
 - manta_v2_gazebo_ros2_control
+
 This package simulates manta_v2 with Gazebo
 
 - manta_v2_moveit_config
+
 This package contains manta_v2 configuration files (yaml, srdf) to use MoveIt2 package in ROS2 environment.
 
 - manta_v2_run_move_group
+
 This package for moving manta_v2 using Move Group C++ Interface.
 
 ## License
