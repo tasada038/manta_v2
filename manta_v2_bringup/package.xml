@@ -4,8 +4,8 @@
   <name>manta_v2_bringup</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="tasada038@gmail.com">Takumi Asada</maintainer>
-  <license>MIT License</license>
+  <maintainer email="tasada381@gmail.com">Takumi Asada</maintainer>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

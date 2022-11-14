@@ -5,8 +5,8 @@
   <version>0.0.0</version>
   <description>The manta_v2_description package</description>
 
-  <maintainer email="tasada038@gmail.com">Takumi Asada</maintainer>
-  <license>Apache-2.0</license>
+  <maintainer email="tasada381@gmail.com">Takumi Asada</maintainer>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

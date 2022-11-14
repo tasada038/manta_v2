@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>manta v2 controller</description>
   <maintainer email="tasada381@gmail.com">Takumi Asada</maintainer>
-  <license>MIT License</license>
+  <license>Apache License 2.0</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

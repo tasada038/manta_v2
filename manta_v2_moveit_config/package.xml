@@ -6,7 +6,7 @@
   <description>The manta_v2_moveit_config package</description>
 
   <maintainer email="tasada381@gmail.com">Takumi Asada</maintainer>
-  <license>Apache-2.0</license>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
